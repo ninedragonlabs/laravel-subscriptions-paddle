@@ -8,6 +8,7 @@ use ProtoneMedia\LaravelPaddle\Events\SubscriptionPaymentSucceeded;
 use Illuminate\Support\Facades\Log;
 use App\Models\Subscription;
 
+
 class StoreSuccessfulPayment
 {
    
@@ -19,10 +20,10 @@ class StoreSuccessfulPayment
      */
     public function handle(SubscriptionPaymentSucceeded $event)
     {
+         Log::info('Showing the user profile for user');
         // Subscription::create([
         //     'user_id' =>$event->passthrough['user_id'],
         //     'status'=>'active'
         // ]);
-        Log::info('SubscriptionPaymentSucceeded',$event->all());
     }
 }
