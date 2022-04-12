@@ -33,7 +33,10 @@
 
 		Paddle.Checkout.open({
             product:productId,
-            email: "{{auth()->user()->email}}"
+            email: "{{auth()->user()->email}}",
+            passthrough:{
+                user_id: "{{auth()->user()->id}}"
+            }
         })
         
     }
