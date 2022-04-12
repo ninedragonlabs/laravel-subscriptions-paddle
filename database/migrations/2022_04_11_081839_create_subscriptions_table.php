@@ -18,9 +18,9 @@ return new class extends Migration
             $table->foreignId('user_id')->nullable()->constrained('users')->nullOnDelete();
 
             // Paddle identifiers.
-            $table->string('paddle_user_id');
-            $table->string('paddle_subscription_id');
-            $table->string('paddle_plan_id');
+            $table->string('paddle_user_id')->nullable();
+            $table->string('paddle_subscription_id')->nullable();
+            $table->string('paddle_plan_id')->nullable();
             $table->string('paddle_checkout_id')->nullable();
 
             // Subscription state.
