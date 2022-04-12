@@ -19,6 +19,10 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('subscription_state')->nullable();
+            $table->date('subscription_ends_at')->nullable();
+            $table->string('paddle_cancel_url')->nullable();
+            $table->string('paddle_update_url')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

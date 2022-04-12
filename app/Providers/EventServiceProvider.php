@@ -23,7 +23,11 @@ class EventServiceProvider extends ServiceProvider
 
         SubscriptionPaymentSucceeded::class => [
             StoreSuccessfulPayment::class,
-        ]
+        ],
+
+        ProtoneMedia\LaravelPaddle\Events\SubscriptionCreated::class => [
+            Listeners\SaveSubscription::class
+        ],
     ];
 
     /**

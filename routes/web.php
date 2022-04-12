@@ -19,6 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
+     Log::info('yan afriyoko');
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
