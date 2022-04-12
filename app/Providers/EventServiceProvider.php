@@ -6,7 +6,7 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
-use ProtoneMedia\LaravelPaddle\Events\PaymentSucceeded; 
+use ProtoneMedia\LaravelPaddle\Events\SubscriptionPaymentSucceeded; 
 use App\Listeners\StoreSuccessfulPayment;
 
 class EventServiceProvider extends ServiceProvider
@@ -21,7 +21,7 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
 
-        PaymentSucceeded::class => [
+        SubscriptionPaymentSucceeded::class => [
             StoreSuccessfulPayment::class,
         ]
     ];
