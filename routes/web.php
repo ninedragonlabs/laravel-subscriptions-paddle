@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WebhookController;
+use Illuminate\Support\Facades\Log;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +20,7 @@ Route::get('/', function () {
 
 Route::post('paddle/webhook', [WebhookController::class,'handleSubscriptionPaymentSucceeded']);
 Route::get('/dashboard', function () {
+    
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Laravel\Paddle\Http\Controllers\WebhookController as CashierController;
-
+use Illuminate\Support\Facades\Log;
 
 class WebhookController extends CashierController
 {
@@ -16,6 +16,6 @@ class WebhookController extends CashierController
      */
     public function handleSubscriptionPaymentSucceeded($payload)
     {
-        Log::info('SubscriptionPaymentSucceeded',"haloo");
+        Log::info('Showing the user profile for user:');
     }
 }
