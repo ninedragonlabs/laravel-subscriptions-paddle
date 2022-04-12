@@ -4,10 +4,8 @@ namespace App\Listeners;
 
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
-use ProtoneMedia\LaravelPaddle\Events\SubscriptionPaymentSucceeded;
+use ProtoneMedia\LaravelPaddle\Events\PaymentSucceeded;
 use Illuminate\Support\Facades\Log;
-use App\Models\Subscription;
-
 
 class StoreSuccessfulPayment
 {
@@ -18,9 +16,8 @@ class StoreSuccessfulPayment
      * @param  object  $event
      * @return void
      */
-    public function handle(SubscriptionPaymentSucceeded $event)
+    public function handle($event)
     {
          Log::info('yan afriyoko');
-       
     }
 }
