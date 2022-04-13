@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PlanController;
+use App\Http\Controllers\WebhookController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +24,8 @@ Route::get('/', function () {
 Route::get('pay',[PaymentController::class,'pay'])->middleware(['auth']);
 Route::get('plans',[PlanController::class,'index'])->middleware(['auth']);
 Route::post('subscribe',[PlanController::class,'subscribe'])->middleware(['auth'])->name('subscribe');
+Route::get('cancel/{subscription}',[PlanController::class,'cancel'])->middleware(['auth'])->name('cancel');
+Route::post('paddle/webhook', WebhookController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

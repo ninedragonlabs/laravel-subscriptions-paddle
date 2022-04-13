@@ -17,18 +17,32 @@ class PlanController extends Controller
     public function index()
     {
         $plans = Plan::all();
-        return view('plans',compact('plans'));
+        $subscriptions = auth()->user()->subscriptions()->active()->get();
+        $currentPlan = null;
+
+        foreach($plans as $plan){
+             if(auth()->user()->subscribed($plan->name)){
+               $currentPlan = $plan->name;  
+             }
+        }
+
+        return view('plans',compact('plans','subscriptions','currentPlan'));
     }
 
 
     public function subscribe(Request $request){
-        
+      
         $plan = json_decode($request->plan);
-        $payLink = $request->user()->newSubscription($plan->name, $plan->plan_id)
+        $payLink = $request->user()->newSubscription($plan->name, $plan->plan)
             ->returnTo(route('dashboard'))
             ->create();
+       
 
         return view('billing',compact('payLink'));
+
+    }
+
+    public function cancel(Request $request){
 
     }
 
