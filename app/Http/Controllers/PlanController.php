@@ -36,7 +36,6 @@ class PlanController extends Controller
         $payLink = $request->user()->newSubscription($plan->name, $plan->plan)
             ->returnTo(route('dashboard'))
             ->create();
-       
 
         return view('billing',compact('payLink'));
 
