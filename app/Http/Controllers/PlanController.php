@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 
 class PlanController extends Controller
 {
+
+    
     /**
      * Display a listing of the resource.
      *
@@ -39,6 +41,10 @@ class PlanController extends Controller
 
         return view('billing',compact('payLink'));
 
+    }
+
+    public function test(){
+        logger('test hook!'); 
     }
 
     public function cancel(Request $request){

@@ -25,8 +25,9 @@ Route::get('pay',[PaymentController::class,'pay'])->middleware(['auth']);
 Route::get('plans',[PlanController::class,'index'])->middleware(['auth']);
 Route::post('subscribe',[PlanController::class,'subscribe'])->middleware(['auth'])->name('subscribe');
 Route::get('cancel/{subscription}',[PlanController::class,'cancel'])->middleware(['auth'])->name('cancel');
-Route::post('paddle/webhook', [WebhookController::class,'handlePaymentSucceeded']);
+Route::post('paddle/webhook', App\Http\Controllers\WebhookController::class);
 
+Route::post('paddle/test',[PlanController::class,'test']);
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
